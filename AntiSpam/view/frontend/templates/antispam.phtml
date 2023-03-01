@@ -1,0 +1,13 @@
+<?php
+$helper = $this->helper('Avivi\AntiSpam\Helper\Data');
+if ($helper->isEnabled()): ?>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Avivi_AntiSpam/js/antispam": {
+                    "forms": <?= /* @noEscape */ json_encode($helper->getFormSelectors()) ?>
+                }
+            }
+        }
+    </script>
+<?php endif; ?>

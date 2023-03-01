@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="antispam" translate="label" sortOrder="1000">
+            <label>Extention</label>
+        </tab>
+        <section id="hs_antispam" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+            <label>AntiSpam</label>
+            <tab>antispam</tab>
+            <resource>Avivi_AntiSpam::config_hs_antispam</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>General</label>
+                <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="forms" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="multiselect">
+                    <label>Forms</label>
+                    <source_model>Avivi\AntiSpam\Model\System\Config\Source\Forms</source_model>
+                </field>
+                <field id="custom_forms" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <label>Custom Forms</label>
+                    <frontend_model>Avivi\AntiSpam\Block\Adminhtml\Form\Field\CustomForms</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
